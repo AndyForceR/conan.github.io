@@ -16,6 +16,18 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
+// HAMBURGER MENU DESIGN
+const hambMenuBtn = document.querySelector(".menu-toggle");
+const inoutMenu = document.querySelector(".inout-menu");
+const slider = document.querySelector(".slider");
+
+hambMenuBtn.addEventListener("click", () => {
+  hambMenuBtn.classList.toggle("is-active");
+  document.body.classList.toggle("body-scroll-off");
+  inoutMenu.classList.toggle("inout-menu-open");
+  slider.classList.toggle("hide-slider");
+});
+
 // BLOG POSTS PAGINATION CODE
 let thisPage = 1;
 let limit = 6;
@@ -100,12 +112,12 @@ tagsDisplayAllBtn.addEventListener("click", () => {
 });
 
 // DISPLAY HIDE MENU
-const inoutMenu = document.querySelector(".inout-menu");
-const inoutMenuBtn = document.querySelector(".menu-toggle");
+// const inoutMenu = document.querySelector(".inout-menu");
+// const inoutMenuBtn = document.querySelector(".menu-toggle");
 
-inoutMenuBtn.addEventListener("click", () => {
-  inoutMenu.classList.toggle("inout-menu-open");
-});
+// inoutMenuBtn.addEventListener("click", () => {
+//   inoutMenu.classList.toggle("inout-menu-open");
+// });
 
 // BACK TO TOP BTN
 const backTopBtn = document.querySelector(".backtop-btn");
@@ -115,4 +127,17 @@ backTopBtn.addEventListener("click", () => {
     top: 0,
     behavior: "smooth",
   });
+});
+
+// MENU SLIDER
+var swiper2 = new Swiper(".mySwiper2", {
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 70, // Adjust the spacing between slides as needed
+  loop: false, // Add the loop option for infinite loop
+  loopedSlides: 0,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });
