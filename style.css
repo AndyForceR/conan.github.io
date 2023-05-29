@@ -84,7 +84,27 @@ html {
   font-size: 62.5%;
   font-family: "Noto Sans", sans-serif;
 }
+
+/* to delete later */
+.contentPage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #005bac;
+  text-align: center;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* HEADER DESIGN CODE */
+
 header {
   display: grid;
   grid-template-columns: 1fr auto 138px;
@@ -270,6 +290,12 @@ header {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popular-tags-list-btn:hover {
+  background-color: #005bac;
+  color: #fff;
 }
 
 .popular-tags-list-btn h4 {
@@ -602,6 +628,8 @@ header {
 .container {
   display: flex;
   justify-content: center;
+  width: 100%;
+  min-height: 1082px;
 }
 
 .list {
@@ -624,8 +652,15 @@ header {
 .listPage,
 .dots-divider {
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.listPage-container {
+  overflow: hidden;
+}
+
+.listPage {
+  width: 261px;
 }
 
 .dot {
@@ -636,9 +671,18 @@ header {
   margin-right: 10px;
 }
 
+.first-page-container {
+  width: 87px;
+}
+.listPage li {
+  transform: translateX(82px);
+}
+
 .listPage li,
 .last-page-container li,
+.first-page-container li,
 .dots-divider {
+  min-width: 72px;
   width: 72px;
   height: 72px;
   color: #000;
@@ -780,11 +824,17 @@ header {
 }
 
 .popular-section-grid-view aside:first-of-type {
-  margin: 0 auto;
+  margin: 0 0 0 200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 54px;
   grid-row-gap: 54px;
+}
+
+.popular-section-grid-view aside:last-of-type {
+  margin-left: 53px;
+  width: 471px;
+  margin-right: 200px;
 }
 
 .popular-cnt {
@@ -807,7 +857,8 @@ header {
   height: 264px;
   background-color: #707070;
   justify-self: left;
-  margin-left: 53px;
+  margin-left: auto;
+  overflow: hidden;
 }
 
 /* FOOTER */
@@ -912,8 +963,20 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 
-  .footer-logos_left {
+  .footer-upperside {
+    padding-top: 55px;
+    height: 337px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-logos_left,
+  .footer-logos_right {
     display: none;
+  }
+
+  .footer-links {
+    justify-self: center;
   }
 
   @keyframes shrink {
