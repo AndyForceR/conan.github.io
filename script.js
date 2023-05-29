@@ -20,12 +20,13 @@ var swiper = new Swiper(".mySwiper", {
 const hambMenuBtn = document.querySelector(".menu-toggle");
 const inoutMenu = document.querySelector(".inout-menu");
 const slider = document.querySelector(".slider");
+const inputBtn = document.getElementById("tagSearchInput");
 
 hambMenuBtn.addEventListener("click", () => {
   hambMenuBtn.classList.toggle("is-active");
   document.body.classList.toggle("body-scroll-off");
   inoutMenu.classList.toggle("inout-menu-open");
-  slider.classList.toggle("hide-slider");
+  inputBtn.focus();
 });
 
 // BLOG POSTS PAGINATION CODE
@@ -46,9 +47,17 @@ function loadItem() {
   listPage();
 }
 
+const listItems = document.querySelector(".listPage");
+
 function changePage(i) {
   thisPage = i;
   loadItem();
+  translateListItems();
+}
+
+function translateListItems() {
+  let translateX = 87 * (thisPage - 1);
+  listItems.style.transform = `translateX(-${translateX}px)`;
 }
 
 loadItem();
@@ -58,6 +67,7 @@ function listPage() {
   let count = Math.ceil(list.length / limit);
   document.querySelector(".listPage").innerHTML = "";
   document.querySelector(".last-page-container").innerHTML = "";
+  document.querySelector(".first-page-container").innerHTML = "";
 
   // if (thisPage > 1) {
   //   let prev = document.createElement("li");
@@ -88,6 +98,13 @@ function listPage() {
     lastPage.innerText = "LAST";
     lastPage.setAttribute("onclick", "changePage(" + count + ")");
     document.querySelector(".last-page-container").appendChild(lastPage);
+  }
+
+  if (thisPage >= 1 && thisPage >= 2) {
+    let firstPage = document.createElement("li");
+    firstPage.innerText = "FIRST";
+    firstPage.setAttribute("onclick", "changePage(1)");
+    document.querySelector(".first-page-container").appendChild(firstPage);
   }
 }
 
@@ -141,3 +158,4 @@ var swiper2 = new Swiper(".mySwiper2", {
     prevEl: ".swiper-button-prev",
   },
 });
+
