@@ -159,3 +159,33 @@ var swiper2 = new Swiper(".mySwiper2", {
   },
 });
 
+// PHONE SLIDER
+
+var swiper3 = new Swiper(".mySwiper3", {
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 0, // Adjust the spacing between slides as needed
+  loop: false, // Add the loop option for infinite loop
+  loopedSlides: 0,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+// function toggleHideSlideClass() {
+//   const sliderPagination = document.querySelector(".slider-pagination");
+//   if (window.innerWidth < 500) {
+//     sliderPagination.classList.add("hide-slider");
+//   } else {
+//     sliderPagination.classList.remove("hide-slider");
+//   }
+// }
+
+// // Initial check when the page loads
+// toggleHideSlideClass();
+
+// // Attach the event listener to the window's resize event
+// window.addEventListener("resize", toggleHideSlideClass);
+
+
