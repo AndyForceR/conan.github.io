@@ -16,6 +16,19 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
+window.onresize = (event) => {
+  var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+
+  if (windowWidth < 500) {
+    swiper.params.pagination.type = "bullets";
+  } else {
+    swiper.params.pagination.type = "fraction";
+  }
+
+  swiper.pagination.render(); // Render the pagination
+  swiper.pagination.update(); // Update the pagination
+};
+
 // HAMBURGER MENU DESIGN
 const hambMenuBtn = document.querySelector(".menu-toggle");
 const inoutMenu = document.querySelector(".inout-menu");
@@ -27,6 +40,15 @@ hambMenuBtn.addEventListener("click", () => {
   document.body.classList.toggle("body-scroll-off");
   inoutMenu.classList.toggle("inout-menu-open");
   inputBtn.focus();
+});
+
+// HAMBURGER MENU DESIGN PHONE
+const phoneMenuBtn = document.querySelector(".phone-menu");
+const mobileMenu = document.querySelector(".header-phone-menu");
+
+phoneMenuBtn.addEventListener("click", () => {
+  phoneMenuBtn.classList.toggle("mobile-is-active");
+  mobileMenu.classList.toggle("mobile-is-visible");
 });
 
 // BLOG POSTS PAGINATION CODE
@@ -187,5 +209,4 @@ var swiper3 = new Swiper(".mySwiper3", {
 
 // // Attach the event listener to the window's resize event
 // window.addEventListener("resize", toggleHideSlideClass);
-
 
