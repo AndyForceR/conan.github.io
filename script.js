@@ -9,6 +9,7 @@ var swiper = new Swiper(".mySwiper", {
   pagination: {
     el: ".swiper-pagination",
     type: "fraction",
+    clickable: true, // Enable navigation when bullet is clicked
   },
   navigation: {
     nextEl: ".swiper-button-next",
@@ -16,10 +17,22 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-window.onresize = (event) => {
-  var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+// window.onresize = (event) => {
+//   var windowWidth = window.innerWidth || document.documentElement.clientWidth;
 
-  if (windowWidth < 500) {
+//   if (windowWidth < 500) {
+//     swiper.params.pagination.type = "bullets";
+//   } else {
+//     swiper.params.pagination.type = "fraction";
+//   }
+
+//   swiper.pagination.render(); // Render the pagination
+//   swiper.pagination.update(); // Update the pagination
+// };
+window.onresize = (event) => {
+  const bodyWidth = document.body.clientWidth;
+
+  if (bodyWidth < 500) {
     swiper.params.pagination.type = "bullets";
   } else {
     swiper.params.pagination.type = "fraction";
@@ -28,6 +41,24 @@ window.onresize = (event) => {
   swiper.pagination.render(); // Render the pagination
   swiper.pagination.update(); // Update the pagination
 };
+
+// SLIDER FOR PHONE BOTTOM
+var swiper4 = new Swiper(".mySwiper4", {
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  spaceBetween: 100, // Adjust the spacing between slides as needed
+  loop: true, // Add the loop option for infinite loop
+  loopedSlides: 1,
+  pagination: {
+    el: ".swiper-pagination4",
+    type: "fraction",
+    clickable: true, // Enable navigation when bullet is clicked
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 // HAMBURGER MENU DESIGN
 const hambMenuBtn = document.querySelector(".menu-toggle");
@@ -78,8 +109,14 @@ function changePage(i) {
 }
 
 function translateListItems() {
-  let translateX = 87 * (thisPage - 1);
-  listItems.style.transform = `translateX(-${translateX}px)`;
+  const bodyWidth = document.body.clientWidth;
+  if (bodyWidth <= 500) {
+    let translateX = 49 * (thisPage - 1);
+    listItems.style.transform = `translateX(-${translateX}px)`;
+  } else {
+    let translateX = 87 * (thisPage - 1);
+    listItems.style.transform = `translateX(-${translateX}px)`;
+  }
 }
 
 loadItem();
@@ -209,4 +246,3 @@ var swiper3 = new Swiper(".mySwiper3", {
 
 // // Attach the event listener to the window's resize event
 // window.addEventListener("resize", toggleHideSlideClass);
-
