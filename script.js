@@ -70,7 +70,7 @@ hambMenuBtn.addEventListener("click", () => {
   hambMenuBtn.classList.toggle("is-active");
   document.body.classList.toggle("body-scroll-off");
   inoutMenu.classList.toggle("inout-menu-open");
-  inputBtn.focus();
+  // inputBtn.focus();
 });
 
 // HAMBURGER MENU DESIGN PHONE
@@ -106,12 +106,13 @@ function changePage(i) {
   thisPage = i;
   loadItem();
   translateListItems();
+  blogPostSection.scrollIntoView({ behavior: "smooth" });
 }
 
 function translateListItems() {
   const bodyWidth = document.body.clientWidth;
   if (bodyWidth <= 500) {
-    let translateX = 49 * (thisPage - 1);
+    let translateX = 54 * (thisPage - 1);
     listItems.style.transform = `translateX(-${translateX}px)`;
   } else {
     let translateX = 87 * (thisPage - 1);
@@ -196,14 +197,14 @@ tagsDisplayAllBtn.addEventListener("click", () => {
 // });
 
 // BACK TO TOP BTN
-const backTopBtn = document.querySelector(".backtop-btn");
+// const backTopBtn = document.querySelector(".backtop-btn");
 
-backTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+// backTopBtn.addEventListener("click", () => {
+//   window.scrollTo({
+//     top: 0,
+//     behavior: "smooth",
+//   });
+// });
 
 // MENU SLIDER
 var swiper2 = new Swiper(".mySwiper2", {
