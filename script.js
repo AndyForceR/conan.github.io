@@ -197,14 +197,16 @@ tagsDisplayAllBtn.addEventListener("click", () => {
 // });
 
 // BACK TO TOP BTN
-// const backTopBtn = document.querySelector(".backtop-btn");
+const backTopBtn = document.querySelectorAll(".go-top-btn");
 
-// backTopBtn.addEventListener("click", () => {
-//   window.scrollTo({
-//     top: 0,
-//     behavior: "smooth",
-//   });
-// });
+backTopBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+});
 
 // MENU SLIDER
 var swiper2 = new Swiper(".mySwiper2", {
